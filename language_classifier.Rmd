@@ -100,12 +100,13 @@ accuracy_df <- data.frame(KNN = knn_confusion$overall[1],
 
 accuracy_df <- melt(accuracy_df)
 
-ggplot(accuracy_df, aes(variable, value)) +
+accuracy_plot <- ggplot(accuracy_df, aes(variable, value)) +
   geom_col() +
   theme_classic() +
   coord_cartesian(expand = 0) +
-  labs(x = "", y = "Accuracy", title = "Accuracy Comparison")+
+  labs(x = "", y = "Accuracy", title = "Accuracy Comparison") +
   geom_text(aes(label = round(value, 2)), vjust = 1.5, colour = "white")
+accuracy_plot
 ```
 ```{r}
 knn_confusion$table
